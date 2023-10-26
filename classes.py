@@ -3,7 +3,7 @@ class mine:
     reveled=False
     def explote():
         print("you lose")
-        t.sleep(1000)
+        t.sleep(5)
         quit()
 
 
