@@ -34,7 +34,7 @@ Install dependencies
 execute
 
 ```bash
-  python3 minesweeper/main.py
+  python3 main.py
 ```
 
 
