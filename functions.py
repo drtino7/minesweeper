@@ -16,7 +16,7 @@ def converter(x):
 
 def show(x):
     for i in range(0,len(x)):
-        print('\n')
+        print('\n',end='')
         for j in range(0,len(x[0])):
             if(isinstance(x[i][j],cl.mine) and x[i][j].reveled == False):
                 print("x", end=' ')
@@ -26,21 +26,21 @@ def show(x):
                 
             if(isinstance(x[i][j],cl.NonMine) and x[i][j].reveled == True):
                 count = 0
-                if(isinstance(x[i-1][j-1],cl.mine)):
+                if(i > 0 and j > 0 and isinstance(x[i-1][j-1],cl.mine)):
                     count = count + 1
-                if(isinstance(x[i-1][j],cl.mine)):
+                if(i > 0 and isinstance(x[i-1][j],cl.mine)):
                     count = count + 1            
-                if(j < len(x[0]) and isinstance(x[i-1][j+1],cl.mine)):
+                if(j < len(x[0])-1 and i > 0 and isinstance(x[i-1][j+1],cl.mine)):
                     count = count + 1            
-                if(isinstance(x[i][j-1],cl.mine)):
+                if(j > 0 and isinstance(x[i][j-1],cl.mine)):
                     count = count + 1
-                if(j < len(x[0]) and isinstance(x[i][j+1],cl.mine)):
+                if(j < len(x[0])-1 and isinstance(x[i][j+1],cl.mine)):
                     count = count + 1
-                if(i > len(x) and isinstance(x[i+1][j-1],cl.mine)):
+                if(j + 0 and i < len(x)-1 and isinstance(x[i+1][j-1],cl.mine)):
                     count = count + 1
-                if(i < len(x) and isinstance(x[i+1][j],cl.mine)):
+                if(i < len(x)-1 and isinstance(x[i+1][j],cl.mine)):
                     count = count + 1
-                if(j < len(x[0]) and i < len(x) and isinstance(x[i+1][j+1],cl.mine)):
+                if(j < len(x[0])-1 and i < len(x)-1 and isinstance(x[i+1][j+1],cl.mine)):
                     count = count + 1
 
                 print(count,end=' ')
@@ -69,4 +69,13 @@ def check(x):
 
     return check
             
+
+def win():
+    import pygame as pg
+    import time as t
+    print("YOU WON!!!")
+    pg.init()
+    pg.mixer.music.load('assets/win_sound.wav')
+    pg.mixer.music.play()
+    t.sleep(5)
 

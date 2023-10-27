@@ -6,7 +6,7 @@ import classes as cl
 x = gc.create_X()
 fc.converter(x)
 while(fc.check(x)!= 0):
-    fc.show(x)
     fc.play(x)
-
-print("you won")
+    fc.show(x)
+    print(x)
+fc.win()
