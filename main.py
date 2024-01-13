@@ -7,5 +7,4 @@ x = gc.create_X()
 fc.converter(x)
 while(fc.check(x)!= 0):
     fc.play(x)
-    fc.show(x)
 fc.win()

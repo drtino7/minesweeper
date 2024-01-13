@@ -1,8 +1,8 @@
 import time as t
+import pygame as pg
 class mine:
     reveled=False
     def explote():
-        import pygame as pg
         print("you lose")
         pg.init()
         pg.mixer.music.load('assets/lose_sound.wav')

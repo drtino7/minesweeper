@@ -15,14 +15,33 @@ def converter(x):
 
 
 def show(x):
+    print('',end='       ')
     for i in range(0,len(x)):
-        print('\n',end='')
+        if (i > 9):
+            print(i, end= '  ')
+        else:
+            print(i,end='   ')
+    print()
+    print()
+        
+    for i in range(0,len(x)):
+        
+
+        if (i > 9): 
+            print(i, end= ' ')
+        else:
+            print(i,end='  ')
+
+        print('  ',end='')
+
+
+
         for j in range(0,len(x[0])):
             if(isinstance(x[i][j],cl.mine) and x[i][j].reveled == False):
-                print("x", end=' ')
+                print('|',"x", end=' ')
                 
             if(isinstance(x[i][j],cl.NonMine) and x[i][j].reveled == False):
-                print("x", end=' ')
+                print('|',"x", end=' ')
                 
             if(isinstance(x[i][j],cl.NonMine) and x[i][j].reveled == True):
                 count = 0
@@ -43,10 +62,17 @@ def show(x):
                 if(j < len(x[0])-1 and i < len(x)-1 and isinstance(x[i+1][j+1],cl.mine)):
                     count = count + 1
 
-                print(count,end=' ')
+                print('|',count,end=' ')
+        print()
+        print('     ',end='')
+        for h in range(0,len(x)):
+            print('  - ',end='')
+        print()
+
             
 
 def play(x):
+    show(x)
     print('\n')
     playi = int(input("tpye the column you want to reveal: "))
     playj= int(input("tpye the row you want to reveal: "))
@@ -67,8 +93,7 @@ def check(x):
             if(isinstance(x[i][j],cl.NonMine) and x[i][j].reveled == False):
                 check = check + 1
 
-    return check
-            
+    return check  
 
 def win():
     import pygame as pg
