@@ -2,6 +2,7 @@ import time as t
 import pygame as pg
 class mine:
     reveled=False
+    flag = False
     def explote():
         print("you lose")
         pg.init()
@@ -12,3 +13,4 @@ class mine:
 
 class NonMine():
     reveled=False
+    flag = False
